@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="10643" started-at="2019-06-11T04:08:02Z" finished-at="2019-06-11T04:08:12Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="10643" started-at="2019-06-11T04:08:02Z" finished-at="2019-06-11T04:08:12Z">
+      <class name="testCases.StudentRegistration">
+        <test-method status="PASS" signature="TestSetUp()[pri:0, instance:testCases.StudentRegistration@6fd02e5]" name="TestSetUp" is-config="true" duration-ms="56" started-at="2019-06-11T09:38:02Z" finished-at="2019-06-11T09:38:02Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestSetUp -->
+        <test-method status="PASS" signature="classSetup()[pri:0, instance:testCases.StudentRegistration@6fd02e5]" name="classSetup" is-config="true" duration-ms="4943" started-at="2019-06-11T09:38:02Z" finished-at="2019-06-11T09:38:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- classSetup -->
+        <test-method status="PASS" signature="TC01_StudentRegistration()[pri:0, instance:testCases.StudentRegistration@6fd02e5]" name="TC01_StudentRegistration" duration-ms="5609" started-at="2019-06-11T09:38:07Z" finished-at="2019-06-11T09:38:12Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC01_StudentRegistration -->
+        <test-method status="PASS" signature="MethodCleanUp()[pri:0, instance:testCases.StudentRegistration@6fd02e5]" name="MethodCleanUp" is-config="true" duration-ms="1" started-at="2019-06-11T09:38:12Z" finished-at="2019-06-11T09:38:12Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- MethodCleanUp -->
+        <test-method status="PASS" signature="CloseDriver()[pri:0, instance:testCases.StudentRegistration@6fd02e5]" name="CloseDriver" is-config="true" duration-ms="1" started-at="2019-06-11T09:38:12Z" finished-at="2019-06-11T09:38:12Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CloseDriver -->
+      </class> <!-- testCases.StudentRegistration -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
