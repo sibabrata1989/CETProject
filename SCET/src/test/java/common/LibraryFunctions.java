@@ -31,7 +31,7 @@ public interface LibraryFunctions {
 		Thread.sleep(2000);
 	
 	}
-	public static void popUpHandle(WebDriver driver)
+	public static void popUpHandleOk(WebDriver driver)
 	{
 		Alert alert = driver.switchTo().alert();
 		alert.accept();

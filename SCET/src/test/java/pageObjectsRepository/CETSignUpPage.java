@@ -2,9 +2,13 @@ package pageObjectsRepository;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 
 import common.BrowserHelper;
 import common.ExcelHelper;
@@ -21,10 +25,11 @@ public class CETSignUpPage implements LibraryFunctions
 	By byAdharNo = By.id("stdfrm_aadhaar");
 	By byPassword = By.id("stdfrm_password");
 	By byConfirmPassword = By.id("stdfrm_confirmPwd");
-	By byRegister = By.id("sendotp");
+	By bysendOtp = By.id("sendotp");
 	By byNotNRIStudent= By.xpath("//*[@id='stdfrm_is_NRI' and @value='N']");
 	By byDOB = By.id("txtDate");
 	By byGender = By.xpath("//*[@id='stdfrm_gender' and @value='M']");
+	By byRegister = By.className("btnRegister");
 	 
 	
 	public CETSignUpPage(WebDriver driver)
@@ -33,14 +38,14 @@ public class CETSignUpPage implements LibraryFunctions
 	}
 	public void studentRegistration(ExcelHelper objExcel) throws Exception
 	{
-		driver.navigate().to("http://14.143.45.237:8120/Student/Registration");
+		driver.navigate().to("http://14.143.45.237:8122/Student/Registration");
 		Thread.sleep(5);
 		try{
 			driver.findElement(byDegree).click();
 			WebElement degreeDrpDown = driver.findElement(byDegree);
 			LibraryFunctions.selectDropDownValue(driver,degreeDrpDown,"UG-Under Graduate");
 			driver.findElement(byNotNRIStudent).click();
-			driver.findElement(byMobileNumber).sendKeys("9778457821");
+			driver.findElement(byMobileNumber).sendKeys("9778457822");
 			driver.findElement(byEmail).sendKeys("xyz@gmail.com");
 			driver.findElement(byFirstName).sendKeys("abc");
 			driver.findElement(byLastName).sendKeys("mnq");
@@ -49,8 +54,13 @@ public class CETSignUpPage implements LibraryFunctions
 			driver.findElement(byGender).click();
 			driver.findElement(byDOB).click();
 			LibraryFunctions.enterDOB(driver, "18/Jun/1989");
+			driver.findElement(bysendOtp).click();
+			LibraryFunctions.popUpHandleOk(driver);
+			Thread.sleep(3);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("window.scrollBy(0,1000)");
 			driver.findElement(byRegister).click();
-			LibraryFunctions.popUpHandle(driver);
+			LibraryFunctions.popUpHandleOk(driver);
 			Thread.sleep(5);
 		}
 		catch(Exception e)

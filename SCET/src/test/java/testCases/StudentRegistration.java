@@ -24,6 +24,8 @@ public class StudentRegistration
 		objExcel = new ExcelHelper();
 		objExcel.SetListHeader(TestConfig.testDataDir + "TestData_Google.xlsx", 0);
 		driver = BrowserHelper.LaunchBrowser(driver);
+		driver.get((TestConfig.SCETUrl));
+		driver.manage().window().maximize();
 	}
 
 	@BeforeTest
@@ -36,10 +38,9 @@ public class StudentRegistration
 	public void TC01_StudentRegistration() throws Exception
 	{
 		
-		String tcName = "TC01_SearchSelenium";
+		/*String tcName = "TC01_SearchSelenium";
 		System.out.println(tcName);
-		objExcel.SetListData(TestConfig.testDataDir + "TestData_Google.xlsx", tcName);
-		driver.get((TestConfig.SCETUrl));
+		objExcel.SetListData(TestConfig.testDataDir + "TestData_Google.xlsx", tcName);*/
 		CETSignUpPage registrationPage = new CETSignUpPage(driver);
 		registrationPage.studentRegistration(objExcel);
 	}
