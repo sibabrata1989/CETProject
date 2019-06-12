@@ -22,7 +22,7 @@ public class StudentRegistration
 	public void classSetup()
 	{
 		objExcel = new ExcelHelper();
-		objExcel.SetListHeader(TestConfig.testDataDir + "TestData_Google.xlsx", 0);
+		objExcel.SetListHeader(TestConfig.testDataDir + "TestData_CET.xlsx", 0);
 		driver = BrowserHelper.LaunchBrowser(driver);
 		driver.get((TestConfig.SCETUrl));
 		driver.manage().window().maximize();
@@ -38,9 +38,9 @@ public class StudentRegistration
 	public void TC01_StudentRegistration() throws Exception
 	{
 		
-		/*String tcName = "TC01_SearchSelenium";
+		String tcName = "TC01_StudentRegistration";
 		System.out.println(tcName);
-		objExcel.SetListData(TestConfig.testDataDir + "TestData_Google.xlsx", tcName);*/
+		objExcel.SetListData(TestConfig.testDataDir + "TestData_CET.xlsx", tcName);
 		CETSignUpPage registrationPage = new CETSignUpPage(driver);
 		registrationPage.studentRegistration(objExcel);
 	}

@@ -7,8 +7,6 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
-import org.openqa.selenium.interactions.Actions;
 
 import common.BrowserHelper;
 import common.ExcelHelper;
@@ -43,17 +41,17 @@ public class CETSignUpPage implements LibraryFunctions
 		try{
 			driver.findElement(byDegree).click();
 			WebElement degreeDrpDown = driver.findElement(byDegree);
-			LibraryFunctions.selectDropDownValue(driver,degreeDrpDown,"UG-Under Graduate");
+			LibraryFunctions.selectDropDownValue(driver,degreeDrpDown,objExcel.GetValue(0, "degree"));
 			driver.findElement(byNotNRIStudent).click();
-			driver.findElement(byMobileNumber).sendKeys("9778457822");
-			driver.findElement(byEmail).sendKeys("xyz@gmail.com");
-			driver.findElement(byFirstName).sendKeys("abc");
-			driver.findElement(byLastName).sendKeys("mnq");
-			driver.findElement(byPassword).sendKeys("Abc@123");
-			driver.findElement(byConfirmPassword).sendKeys("Abc@123");
+			driver.findElement(byMobileNumber).sendKeys(objExcel.GetValue(0, "mobileNum"));
+			driver.findElement(byEmail).sendKeys(objExcel.GetValue(0, "email"));
+			driver.findElement(byFirstName).sendKeys(objExcel.GetValue(0, "firstName"));
+			driver.findElement(byLastName).sendKeys(objExcel.GetValue(0, "lastName"));
+			driver.findElement(byPassword).sendKeys(objExcel.GetValue(0, "password"));
+			driver.findElement(byConfirmPassword).sendKeys(objExcel.GetValue(0, "confirmPassword"));
 			driver.findElement(byGender).click();
 			driver.findElement(byDOB).click();
-			LibraryFunctions.enterDOB(driver, "18/Jun/1989");
+			LibraryFunctions.enterDOB(driver, objExcel.GetValue(0, "DOB"));
 			driver.findElement(bysendOtp).click();
 			LibraryFunctions.popUpHandleOk(driver);
 			Thread.sleep(3);
