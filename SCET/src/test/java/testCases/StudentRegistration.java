@@ -16,6 +16,7 @@ public class StudentRegistration
 {
 	WebDriver driver = null;
 	ExcelHelper objExcel = null;
+	String tcName;
 	
 	
 	@BeforeClass
@@ -37,12 +38,18 @@ public class StudentRegistration
 	@Test
 	public void TC01_StudentRegistration() throws Exception
 	{
-		
-		String tcName = "TC01_StudentRegistration";
+		try{
+		tcName = "TC01_StudentRegistration";
 		System.out.println(tcName);
 		objExcel.SetListData(TestConfig.testDataDir + "TestData_CET.xlsx", tcName);
 		CETSignUpPage registrationPage = new CETSignUpPage(driver);
 		registrationPage.studentRegistration(objExcel);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			BrowserHelper.SaveScreenshot(tcName, driver);
+		}
 	}
 
 	
