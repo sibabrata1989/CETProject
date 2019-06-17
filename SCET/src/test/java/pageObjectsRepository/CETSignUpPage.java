@@ -1,5 +1,7 @@
 package pageObjectsRepository;
 
+import static org.testng.Assert.assertEquals;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -58,6 +60,7 @@ public class CETSignUpPage implements LibraryFunctions
 			driver.findElement(byRegister).click();
 			LibraryFunctions.popUpHandleOk(driver);
 			Thread.sleep(5);
+			assertEquals(driver.getTitle(), "LogIn SAAR Application");
 		}
 		catch(Exception e)
 		{
