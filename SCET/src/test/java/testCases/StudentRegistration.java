@@ -49,7 +49,7 @@ public class StudentRegistration
 		System.out.println(tcName);
 		objExcel.SetListData(TestConfig.testDataDir + "TestData_CET.xlsx", tcName);
 		CETSignUpPage registrationPage = new CETSignUpPage(driver);
-		registrationPage.studentRegistration(objExcel,2,softassertion);
+		registrationPage.studentRegistration(objExcel,0,softassertion);
 		softassertion.assertAll();
 		}
 		catch(Exception e)
