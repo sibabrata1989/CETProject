@@ -1,11 +1,14 @@
 package testCases;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import common.BrowserHelper;
 import common.ExcelHelper;
@@ -16,7 +19,8 @@ public class StudentRegistration
 {
 	WebDriver driver = null;
 	ExcelHelper objExcel = null;
-	String tcName;
+	String tcName = null;
+	SoftAssert softassertion;
 	
 	
 	@BeforeClass
@@ -27,12 +31,14 @@ public class StudentRegistration
 		driver = BrowserHelper.LaunchBrowser(driver);
 		driver.get((TestConfig.SCETUrl));
 		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS) ;
 	}
 
 	@BeforeTest
 	public void TestSetUp()
 	{
 		TestConfig.SetCommonEnv();
+		softassertion = new SoftAssert();
 	}
 	
 	@Test
@@ -43,7 +49,8 @@ public class StudentRegistration
 		System.out.println(tcName);
 		objExcel.SetListData(TestConfig.testDataDir + "TestData_CET.xlsx", tcName);
 		CETSignUpPage registrationPage = new CETSignUpPage(driver);
-		registrationPage.studentRegistration(objExcel);
+		registrationPage.studentRegistration(objExcel,2,softassertion);
+		softassertion.assertAll();
 		}
 		catch(Exception e)
 		{
